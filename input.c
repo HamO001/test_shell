@@ -7,6 +7,11 @@
 #define TOKEN_BUFSIZE 64
 #define TOKEN_DELIMITERS " \t\r\n\a"
 
+/**
+ * read_line - function to read line
+ * Return: char
+ */
+
 char *read_line(void)
 {
 	char *line = NULL;
@@ -21,6 +26,12 @@ char *read_line(void)
 
 	return (line);
 }
+
+/**
+ * parse_line - purse function
+ * @line: line number
+ * Return: char
+ */
 
 char **parse_line(char *line)
 {

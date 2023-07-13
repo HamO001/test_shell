@@ -7,6 +7,10 @@
 #include <sys/wait.h>
 #include "commands.h"
 
+/**
+ * shell_loop - looping fuunction
+ * Return: nothing
+ */
 void shell_loop(void)
 {
 	char *line;
@@ -36,10 +40,14 @@ void shell_loop(void)
 	} while (status);
 }
 
+/**
+ * main - main function
+ * Return: zero
+ */
 int main(void)
 
 {
-	int interactive = isatty(STDIN_FILENO);
+	/*int interactive = isatty(STDIN_FILENO);*/
 
 	shell_loop();
 

@@ -7,7 +7,12 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-void shell_loop(void)
+
+/**
+ * hell_loop - hell loop function
+ * Return - void
+ */
+void hell_loop(void)
 {
 	char *line;
 	char **args;

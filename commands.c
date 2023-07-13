@@ -6,6 +6,12 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
+/**
+ * execute_command - function to excecute command
+ * @args: arguements
+ * Return: integer
+ */
+
 int execute_command(char **args)
 {
 	pid_t pid;
@@ -21,7 +27,7 @@ int execute_command(char **args)
 	{
 		/* Child process */
 		execve(args[0], args, NULL);
-		perror("Command execution error");
+		perror(":(Command execution error");
 		exit(EXIT_FAILURE);
 	}
 	else
@@ -35,7 +41,7 @@ int execute_command(char **args)
 		}
 		else
 		{
-			perror("Command execution error");
+			perror("Command execution error$$$$$");
 			return (-1);
 		}
 	}
