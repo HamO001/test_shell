@@ -26,6 +26,7 @@ int execute_command(char **args)
 	else if (pid == 0)
 	{
 		/* Child process */
+		/*char *args[] = {"argv[1]", NULL};*/
 		execve(args[0], args, NULL);
 		perror(":(Command execution error");
 		exit(EXIT_FAILURE);
