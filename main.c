@@ -11,7 +11,7 @@
  * shell_loop - looping fuunction
  * Return: nothing
  */
-void shell_loop(void)
+void hell_loop(void)
 {
 	char *line;
 	char **args;
@@ -26,7 +26,7 @@ void shell_loop(void)
 		}
 
 		line = NULL;
-		if (getline(&line, &buffer_size, stdin) == -1)
+		if (_getline(&line, &buffer_size, stdin) == -1)
 		{
 			perror("getline");
 			exit(EXIT_FAILURE);
@@ -37,7 +37,7 @@ void shell_loop(void)
 
 		free(line);
 		free(args);
-	} while (status);
+	} while (interactive || status == 1);
 }
 
 /**
@@ -47,9 +47,9 @@ void shell_loop(void)
 int main(void)
 
 {
-	/*int interactive = isatty(STDIN_FILENO);*/
+	isatty(STDIN_FILENO);
 
-	shell_loop();
+	hell_loop();
 
 	return (EXIT_SUCCESS);
 }

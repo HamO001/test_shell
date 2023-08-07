@@ -14,10 +14,9 @@
 
 int execute_command(char **args)
 {
-	pid_t pid;
-	int status;
+	int status;	
 
-	pid = fork();
+	pid_t pid = fork();
 	if (pid < 0)
 	{
 		perror("Fork error");
@@ -25,12 +24,35 @@ int execute_command(char **args)
 	}
 	else if (pid == 0)
 	{
-		/* Child process */
-		/*char *args[] = {"argv[1]", NULL};*/
+		/* Child process 
+		char *shellPath = "/bin/sh";
+		char *shellArgs[] = {"-c", args, NULL};
+		char *envp[] ={NULL };
+
+		execve(shellPath, shellArgs, envp);
+		
+		write(STDOUT_FILENO, "\n", 1);
+		execve(args[0], args, NULL);*/
+		char args[4];
+		int i;
+
+		
+		args[0] = "/bin/sh";
+		args[1] = "-c";
+		args[2] = (char *) args; 
+		args[3] = NULL;
+
+		while (args[i])
+			i++;
+
+		write(STDOUT_FILENO, "", 1);
 		execve(args[0], args, NULL);
-		perror(":(Command execution error");
+		perror(":( Excecution commands error");
+
+
 		exit(EXIT_FAILURE);
 	}
+
 	else
 	{
 		/* Parent process */

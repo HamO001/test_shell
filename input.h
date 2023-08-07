@@ -3,5 +3,5 @@
 
 char *read_line(void);
 char **parse_line(char *line);
-
+char *_getline(void);
 #endif /* INPUT.H */

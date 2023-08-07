@@ -12,7 +12,7 @@
  * hell_loop - hell loop function
  * Return - void
  */
-void hell_loop(void)
+void shell_loop(void)
 {
 	char *line;
 	char **args;
